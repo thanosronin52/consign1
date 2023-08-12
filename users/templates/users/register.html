@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+	<link rel="stylesheet" href="{% static 'asset/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="portal">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="title">
+                <h1>SIGN UP</h1>
+                <p>Welcome! Please enter your details to create an account.</p>
+            </div>
+            <button id="google-signin">
+                <img src="{% static 'asset/google-logo.svg' %}" alt="">
+                Sign up with Google
+            </button>
+            <span>or</span>
+            <div class="input-field">
+                <label for="username">Username</label><br>
+                {{ form.username }}
+                {% for error in form.username.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div class="input-field">
+                <label for="email">Email</label><br>
+                {{ form.email }}
+                {% for error in form.email.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div class="input-field">
+                <label for="password">Password</label><br>
+                {{ form.password1 }}
+                {% for error in form.password1.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div class="input-field">
+                <label for="confirm-password">Confirm Password</label><br>
+                {{ form.password2 }}
+                {% for error in form.password2.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <button class="btn btn-outline-info" type="submit">Sign up</button>
+            <p id="signin">
+                Already have an account?
+                <a href="{% url 'service-home' %}">Log in here</a>
+            </p>
+        </form>
+    </section>
+    <script>
+    document.getElementById("google-signin").addEventListener("click", function() {
+        var popup = document.createElement("div");
+        popup.innerHTML = "<p>Sorry, sign up with Google is not currently available.</p>";
+        popup.style.cssText = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 10px; border: 1px solid black; z-index: 9999;";
+        document.body.appendChild(popup);
+
+        setTimeout(function() {
+            document.body.removeChild(popup);
+        }, 2500);
+    });
+</script>
+
+
+</body>
+</html>

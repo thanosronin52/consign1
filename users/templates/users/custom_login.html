@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{% static 'assets/ita.png' %}" type="image/x-icon" />
+
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Login Form</title>
+    {% endif %}
+    <link rel="stylesheet" href="{% static 'asset/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<section class="portal">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="title">
+            <h1>LOG IN</h1>
+            <p>Welcome back! Please enter your details.</p>
+        </div>
+        <button href="#" id="google-signin">
+            <img src="{% static 'asset/google-logo.svg' %}" alt="">
+            Log in with Google
+        </button>
+        <span>or</span>
+        {% if messages %}
+            {% for message in messages %}
+                <div>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {{ form.errors }}
+        <div class="input-field">
+            {{ form.username.label_tag }}<br><br>
+            {{ form.username }}
+        </div>
+        <div class="input-field">
+            {{ form.password.label_tag }}<br><br>
+            {{ form.password }}
+            <img id="show-hide-pass" src="{% static 'asset/show-eye.svg' %}" alt="">
+        </div>
+        <button id="signin" class="btn btn-outline-info" type="submit">Sign in</button>
+        <p id="signup">Don't have an account? <a href="{% url 'register' %}">Sign up here</a></p>
+    </form>
+</section>
+    <script src="script.js"></script>
+        <script>
+            document.getElementById("google-signin").addEventListener("click", function() {
+                var popup = document.createElement("div");
+                popup.innerHTML = "<p>Sorry, sign up with Google is not currently available.</p>";
+                popup.style.cssText = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 10px; border: 1px solid black; z-index: 9999;";
+                document.body.appendChild(popup);
+
+                setTimeout(function() {
+                    document.body.removeChild(popup);
+                }, 2500);
+            });
+        </script>
+        <script>
+            document.getElementById("show-hide-pass").addEventListener("click", function() {
+                var passInput = document.getElementById("id_password");
+                if (passInput.type === "password") {
+                    passInput.type = "text";
+                    this.src = "{% static 'asset/hide-eye.svg' %}";
+                } else {
+                    passInput.type = "password";
+                    this.src = "{% static 'asset/show-eye.svg' %}";
+                }
+            });
+        </script>
+
+</body>
+</html>

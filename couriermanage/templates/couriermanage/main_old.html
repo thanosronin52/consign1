@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'assets/ita.png' %}" type="image/x-icon" />
+
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="{% static 'ass/style.css' %}">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Track your Product</title>
+</head>
+<body>
+    <!-------------------------------------------- HEADER SECTION -->
+
+        <header class="header" >
+        <a href="#" class="logo">
+            <img src="{% static 'ass/image/pngegg.png' %}" alt="logo">
+        </a>
+        <nav class="navbar">
+          {% if user.is_authenticated %}
+            <a href="{% url 'index' %}" class="active">home</a>
+            <a href="{% url 'main' %}" class="active">Tracking Page</a>
+            <a href="{% url 'about' %}">About</a>
+           
+          {% else %}
+            <a href="{% url 'index' %}" class="active">home</a>
+
+          {% endif %}
+
+        </nav>
+        <div class="buttons">
+            <button id="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+            <button id="cart-btn">
+            </button>
+            <button id="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        {% if user.is_authenticated %}
+          <form style="padding-left: 10rem; width: 350px;" class="search-form" method="get">
+            <input class="search-input" id="search-box" type="search" name="q" value="{{ request.GET.q }}" placeholder="Enter your roll number" aria-label="Search">
+            <button class="fas fa-search" type="submit"></button>
+          </form>
+        {% endif %}
+        
+    </header>
+    <!---------------------------------------------HEADER SECTION -->
+
+    <!---------------------------------------------HOME SECTION -->
+ 
+    <!---------------------------------------------HOME SECTION -->
+    
+    <!---------------------------------------------MENU SECTION -->
+    <section class="menu" id="menu">
+        <h1 class="heading">Tracker <span>ID-s</span></h1>
+              {% if page_obj %}
+              <div class="box-container">
+              {% for courier in page_obj %}
+                  <div class="box">
+                      <div class="box-head">
+                          <img src="{{ courier.avatar.url }}" alt="" style="max-width:100%">
+                          <span class="menu-category"><h1>{{ courier.name }}</h1></span>
+                          <h3>{{ courier.student_rollno }}</h3>
+                          <h2>service: {{ courier.service }}</h2>
+                          <div>
+                              <h2>Map Location</h2>
+                              <iframe src="{{ courier.map_location | safe }}" width="100%" height="200" style="max-width:100%"></iframe>
+                          </div>
+                          <h2>Current Location: {{ courier.current_location }}</h2>
+                          <div class="price"><span></span></div>
+                      </div>
+                      <div class="box-bottom">
+                      </div>
+                  </div>
+              {% endfor %}
+              </div>
+
+                </div>
+              {% else %}
+                <div style="background-color: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 32px; text-align: center; max-width: 500px; margin: 0 auto;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" style="fill: #a7b6c2; margin-bottom: 32px;">
+                    <path d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M12,20c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8S16.4,20,12,20z M11,8H13V16H11V8z" />
+                  </svg>
+                  <h2 style="font-size: 32px; font-weight: 700; color: #374151; margin: 0 0 16px;">Oops, Nothing Here Yet</h2>
+                  <p style="font-size: 20px; color: #6b7280; line-height: 1.5; margin: 0 0 32px;">We're still working on this page. Check back soon or contact us if you need further assistance.</p>
+                  <button style="background-color: #fcd34d; color: #1d1d1f; border: none; border-radius: 4px; padding: 16px 24px; font-size: 18px; font-weight: 600; cursor: pointer; transition: background-color 0.2s ease;"><a href="{% url 'main' %}">Contact Us</a> </button>
+                </div>
+
+
+              {% endif %}
+                  <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                {% endif %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.number }}">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a></li>
+                {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                {% endif %}
+              </ul>
+            </nav>
+        {% block content %}
+            <div>{% include "couriermanage/page.html" %}</div>
+        {% endblock content %}
+    </section>
+    <!---------------------------------------------MENU SECTION -->
+
+
+    <!---------------------------------------------PRODUCTS SECTION -->
+
+    <!---------------------------------------------PRODUCTS SECTION -->
+        
+    <!---------------------------------------------ABOUT US SECTION -->
+
+    <!---------------------------------------------ABOUT US SECTION -->
+    
+    <!---------------------------------------------REVIEW SECTION -->
+    <section class="review" id="review">
+        <h1 class="heading">customer's <span>review</span> </h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="{% static 'ass/image/pm.jpg' %}" alt="quote">
+                <p> "Tracking my packages has never been easier. This courier tracking site's real-time updates, customizable notifications, and user-friendly interface make it stand out from the rest. I highly recommend it and give it a 5 and a half-star rating without hesitation."</p>
+                <img src="{% static 'ass/image/pm.jpg' %}" alt="customer-avatar" class="user">
+                <h3>Patrick Hellinger</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'ass/image/sm.jpg' %}" alt="quote">
+                <p>"Guys, if you're like me and shop online a lot, you need to check out this courier tracking site! It's seriously impressive - accurate, easy-to-use, and customizable. I'd give it a 5 and a half-star rating, no question"</p>
+                <img src="{% static 'ass/image/sm2.jpg' %}" alt="customer-avatar" class="user">
+                <h3>Jacob Williams</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'ass/image/wm.jpg' %}" alt="quote">
+                <p>"Ladies, tracking your packages just got easier! This site's user-friendly interface and real-time updates are a complete game-changer. Highly recommend it!"</p>
+                <img src="{% static 'ass/image/wm2.jpg' %}" alt="customer-avatar" class="user">
+                <h3>Helen Omiye</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </section> 
+    <!---------------------------------------------REVIEW SECTION -->
+    <!---------------------------------------------CONTACT SECTION -->
+
+    <!---------------------------------------------CONTACT SECTION -->
+
+    <!---------------------------------------------BLOG SECTION -->
+
+    <!---------------------------------------------BLOG SECTION -->
+    
+    <!---------------------------------------------FOOTER SECTION -->
+    <section class="footer">
+        
+        <div class="search">
+          {% if user.is_authenticated %}
+          <form  method="get">
+            <input class="search-input" id="search-box" type="search" name="q" value="{{ request.GET.q }}" placeholder="Enter your roll number" aria-label="Search">
+            <button class="btn btn-primary" type="submit">search</button>
+          </form>
+          {% endif %}
+        </div>
+          
+
+        <div class="share">
+            <a href="#" class="fab fa-facebook"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-pinterest"></a>
+        </div>
+ 
+        <div class="credit">
+           | all rights reserved!
+        </div>
+    </section>
+    <!---------------------------------------------FOOTER SECTION -->
+
+<script src="{% static 'ass/script.js' %}"></script>
+</body>
+</html>

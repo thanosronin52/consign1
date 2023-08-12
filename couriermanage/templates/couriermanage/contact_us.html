@@ -1,0 +1,129 @@
+{% extends "couriermanage/base.html" %}
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Menu Sidebar Section Start -->
+    <div class="body-overlay"></div>
+
+    <!-- Page Header Start !-->
+    <div class="page-breadcrumb-area page-bg" style="background-image: url('/static/asset/images/section-bg/transportation-logistics.jpg')">
+        <div class="page-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-wrapper">
+                        <div class="page-heading">
+                            <h3 class="page-title">Contact Us</h3>
+                        </div>
+                        <div class="breadcrumb-list">
+                            <ul>
+                                <li><a href="{% url 'search_courier' %}">Home</a></li>
+                                <li class="active"><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End !-->
+
+    <!-- Contact-info Section Start !-->
+    <div class="contact-info-area">
+        <div class="container">
+            <div class="row gx-xl-5">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="icon-card style-four">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="content">
+                            <h2 class="title">Address</h2>
+                            <p class="desc">20, Bordeshi, New York, US</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="icon-card style-four">
+                        <div class="icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="content">
+                            <h2 class="title">Email</h2>
+                            <p class="desc">winslow@cloner.store</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact-info Section End -->
+    <!-- Contact Form Section Start -->
+    <div class="contact-form-area">
+        <!-- Submit form Start -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="contact-title">
+                        <h2>Send Us A Message</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <!-- Comment Form Start -->
+<div class="form-wrap" id="mc_embed_signup">
+  <form onsubmit="sendEmail(); return false;">
+    <div class="input-group">
+      <input type="email" class="form-control" id="email" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '">
+      <div class="input-group-append">
+        <button class="btn click-btn" type="submit"><i class="fab fa-telegram-plane"></i></button>
+      </div>
+    </div>
+    <div style="position: absolute; left: -5000px;">
+      <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+    </div>
+    <div class="info"></div>
+  </form>
+</div>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+  function sendEmail() {
+    const email = document.getElementById("email").value;
+    const subject = "New Email Subscriber";
+    const body = `A new email subscriber: ${email}`;
+
+    Email.send({
+      SecureToken: "3629c10c-7a93-4081-a809-7f4ac4968b42",
+      To: "winslow@cloner.store",
+      From: "winslow@cloner.store",
+      Subject: subject,
+      Body: body
+    }).then(
+      message => {
+        alert("Email sent successfully!");
+      },
+      error => {
+        alert("Failed to send email. Please try again later.");
+      }
+    );
+  }
+</script>
+                    <!-- Comment Form End -->
+                </div>
+            </div>
+        </div>
+        <!-- Submit form End -->
+    </div>
+    <!-- Contact Form Section End -->
+
+    <!-- Map start -->
+
+    <!-- Map end -->
+
+    <!--- Start Footer !-->
+{% endblock content %}

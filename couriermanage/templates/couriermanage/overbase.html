@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="{% static 'assets/app.a2978632.css' %}" rel="stylesheet">
+    <title>ALL Shipment Of Parcels And Packages In Cloner International Tracking  </title>
+
+
+    <link rel="icon" type="image/png" href="{% static 'logos.png' %}" />
+
+    <link rel="apple-touch-icon" href="{% static 'logos.png' %}" />
+    <title>Track your parcel - World Wide&#039;s Largest Shipment Tracking Platform - Tracking</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="tracking, tracking, " />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    
+
+
+    <style>
+        body {
+            min-height: 100vh;
+        }
+
+        .header {
+            padding: 1rem !important;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .content-body {
+            min-height: calc(100vh - 185px);
+        }
+    </style>
+
+</head>
+
+<body x-data="setupHeader()">
+    <header class="header p-2 px-md-4 bg-white border-bottom shadow-sm">
+        <div class="container d-flex flex-row align-items-center">
+            <div class="h5 my-0 me-auto">
+                <a href="javascript:void" aria-label="Homepage">
+                    <img src="{% static 'logos.png' %}" width="180" height="75" class="logo" alt="Tracking Logo">
+                </a>
+            </div>
+            <a  id="google-signing" class="btn btn-primary me-2 " href="javascript:void">
+                <script>
+            document.getElementById("google-signing").addEventListener("click", function() {
+                var popup = document.createElement("div");
+                popup.innerHTML = "<p>Sorry, We are still to resume are our own Self Delivery Service.</p>";
+                popup.style.cssText = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 10px; border: 1px solid black; z-index: 9999;";
+                document.body.appendChild(popup);
+
+                setTimeout(function() {
+                    document.body.removeChild(popup);
+                }, 2500);
+            });
+        </script>
+                <i class="fas fa-box pe-1"></i> Send Parcel
+            </a>
+
+            <button class="btn btn-white d-static d-lg-none" type="button" id="dropdownMenuProduct" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu">
+                <i class="fas fa-map-marker-alt"></i>
+            </button>
+
+            <button class="btn btn-light me-2 dropdown-toggle d-none d-lg-block" type="button"  data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu">
+                <i class="fas fa-map-marker-alt"></i> Products
+            </button>
+
+            <div class="dropdown-product dropdown-menu dropdown-menu-end p-3" aria-labelledby="dropdownMenuProduct">
+                <h6>Products</h6>
+                <div class="row g-2">
+                    <div class="col-4">
+                        <a data-bs-toggle="modal" data-bs-target="javascript:void">
+                            <img src="{% static 'assets/images/navs/track-parcel.png' %}">
+                            Track Parcel
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="javascript:void">
+                            <img src="{% static 'assets/images/navs/mobile-app.png' %}">
+                           Mobile App
+                        </a>
+                    </div>
+
+                    <div class="col-4">
+                        <a href="javascript:void">
+                            <img src="{% static 'assets/images/navs/seller-platform.png' %}">
+                           Seller Platform
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="javascript:void">
+                            <img src="{% static 'assets/images/navs/tracking-page.png' %}">
+                           Tracking Page
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="javascript:void">
+                            <img src="{% static 'assets/images/navs/send-parcel.png' %}">
+                           Send Parcel
+                        </a>
+                    </div>
+                </div>
+
+                <h6>Developer tools</h6>
+                <div class="row g-2">
+                    <div class="col-4">
+                        <a href="javascript:void">
+                            <img src="{% static 'assets/images/navs/track-button.png' %}">
+                            Track Button
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="javascript:void">
+                            <img src="{% static 'assets/images/navs/tracking-api.png' %}">
+                            Tracking API
+                        </a>
+                    </div>
+                </div>
+                <h6>Integrations</h6>
+                <div class="row g-1 no-hover">
+                    <div class="col">
+                        <a href="javascript:void" data-toggle="tooltip" title="WooCommerce">
+                            <img src="{% static 'assets/images/navs/woocommerce.png' %}">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="javascript:void" data-toggle="tooltip" title="EasyStore">
+                            <img src="{% static 'assets/images/navs/easystore.png' %}">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="javascript:void" data-toggle="tooltip" title="NewPages">
+                            <img src="{% static 'assets/images/navs/newpages.png' %}">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="javascript:void" data-toggle="tooltip" title="SiteGiant">
+                            <img src="{% static 'assets/images/navs/sitegiant.png' %}" >
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="javascript:void" data-toggle="tooltip" title="Welcome Request">
+                            <img src="{% static 'assets/images/navs/new-integration.png' %}">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            </ul>
+        </div>
+    </header>
+
+  {% block content %}
+
+
+  {% endblock%}
+
+
+
+        <footer class="py-4 px-md-4">
+        <div class="container d-flex flex-column flex-md-row align-items-center">
+            <div class="social-icons h5 my-0 me-md-auto">
+                <a href="javascript:void" aria-label="Facebook page"  class="color-facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="javascript:void" aria-label="Instagram"  class="color-instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="javascript:void"  aria-label="Facebook Messenger" class="color-facebook-messenger">
+                    <i class="fab fa-facebook-messenger"></i>
+                </a>
+
+                <a href="javascript:void" aria-label="Telegram"  class="color-telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="javascript:void" aria-label="Google Play"  class="color-android">
+                    <i class="fab fa-android"></i>
+                </a>
+                <a href="javascript:void" aria-label="Apple App Store"  class="color-apple">
+                    <i class="fab fa-apple"></i>
+                </a>
+                <a href="javascript:void" aria-label="HuaWei App Gallery"  class="color-huawei">
+                    <i class="fab fa-huawei"></i>
+                </a>
+            </div>
+            <nav class="my-2 my-md-0 me-md-3">
+
+                <a class="text-dark" href="{% url 'contact_us' %}">Contact Us</a>
+
+            </nav>
+        </div>
+    </footer>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+ 
+
+            </script>
+    <script src="{% static 'assets/app.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zxx">
+{% load static %}
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="description" content="ALL Shipment Of Parcels And Packages In Cloner International Tracking " />
+    <meta name="keywords" content="delivery, item transport, logistics, product delivery, product transport, shipping, supply, transport, transport agency, transportation" />
+    <meta name="author" content="Cloner International Tracking" />
+
+    <title>ALL Shipment Of Parcels And Packages In Cloner International Tracking </title>
+
+
+    <link rel="icon" type="image/png" href="{% static 'logos.png' %}" />
+
+    <link rel="apple-touch-icon" href="{% static 'logos.png' %}" />
+
+
+
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset/css/fontawesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset/css/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset/css/slick.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset/css/meanmenu.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset/css/nice-select.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset/css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}" />
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js' %}"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js' %}"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+  {% if messages %}
+    {% for message in messages %}
+      <div>
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+<body>
+    <!-- Preloader Start !-->
+    <div id="preloader">
+        <div id="preloader-status">
+            <div class="loading-container">
+                <div class="ball1"></div>
+                <div class="ball2"></div>
+                <div class="ball3"></div>
+                <div class="ball4"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader End !-->
+    <!-- Header Start !-->
+    <header class="header-area">
+        <!-- Header Top Start -->
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex align-items-center justify-content-start justify-content-lg-end ">
+                        <div class="header-top-info">
+                            <div class="header-contact-info">
+                                <span><span class="contact-info-item"><i class="fas fa-map-marker-alt"></i>20,
+                                        Bordeshi, New York,US</span></span>
+                                <span><a href="javascript:void"><i class="fas fa-envelope"></i>winslow@cloner.store</a> </span>
+                            </div>
+                            <div class="header-top-btn">
+                                <a href="{% url 'contact_us' %}">Get A Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Top End -->
+        <!-- Header Nav Menu Start -->
+        <div class="header-menu-area sticky-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-6 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="{% url 'search_courier' %}" class="standard-logo">
+                                <img src="{% static 'logos.png' %}" alt="logo" />
+                            </a>
+                            <a href="{% url 'search_courier' %}" class="sticky-logo">
+                                <img src="{% static 'logos.png' %}" alt="logo" />
+                            </a>
+                            <a href="{% url 'search_courier' %}" class="retina-logo">
+                                <img src="{% static 'logos.png' %}" alt="logo" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-6 col-6 d-flex align-items-center justify-content-end">
+                        <div class="menu d-inline-block">
+                            <nav id="main-menu" class="main-menu">
+                                <ul>
+                                    <li class="dropdown active">
+                                        
+                                    </li>
+                                    <li><a href="{% url 'search_courier' %}">Tracking Page</a></li>
+                                    <li class="dropdown">
+                       
+                                    </li>
+                                    
+                                    <li><a href="{% url 'contact_us' %}">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- Header Button Start !-->
+                        <a href="javascript:void" class="header-btn">
+                            <div class="icon-wrapper">
+                                <div class="icon">
+                                    <img src="{% static 'asset/images/icon/phone.png' %}" alt="phone" />
+                                </div>
+                            </div>
+                            <div class="content-wrapper">
+                                <span class="title">Got A Question?</span>
+                                <span class="text">winslow@cloner.store</span>
+                            </div>
+                        </a>
+                        <!-- Header Button Start !-->
+                        <!-- Mobile Menu Toggle Button Start !-->
+                        <div class="mobile-menu-bar d-lg-none text-end">
+                            <a href="#" class="mobile-menu-toggle-btn"><i class="fal fa-bars"></i></a>
+                        </div>
+                        <!-- Mobile Menu Toggle Button End !-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Nav Menu End -->
+    </header>
+    <!-- Header End !-->
+    <!-- Menu Sidebar Section Start -->
+    <div class="menu-sidebar-area">
+        <div class="menu-sidebar-wrapper">
+            <div class="menu-sidebar-close">
+                <button class="menu-sidebar-close-btn" id="menu_sidebar_close_btn">
+                    <i class="fal fa-times"></i>
+                </button>
+            </div>
+            <div class="menu-sidebar-content">
+                <div class="menu-sidebar-logo">
+                    <a href="{% url 'search_courier' %}">
+                        <img src="{% static 'asset/images/logo/logo-2.png' %}" alt="logo" />
+                    </a>
+                </div>
+                <div class="mobile-nav-menu"></div>
+                <div class="menu-sidebar-content">
+                    <div class="menu-sidebar-single-widget">
+                        <h5 class="menu-sidebar-title">Contact Info</h5>
+                        <div class="header-contact-info">
+                            <span><i class="fa-solid fa-location-dot"></i>20, Bordeshi, New York, US</span>
+                            <span><a href="mailto:hello@transico.com"><i
+                                        class="fa-solid fa-envelope"></i>hello@transico.com</a> </span>
+                            <span><a href="tel:+123-456-7890"><i class="fa-solid fa-phone"></i>+123-456-7890</a></span>
+                        </div>
+                        <div class="social-profile">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  {% block content %}
+
+
+  {% endblock%}
+    <footer class="footer bg-light-black" style="padding-top: 10px; margin-top: 20px; max-height: 58px;">
+        <div class="footer-sec">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <div class="footer-widget-info">
+                                <div class="footer-logo">
+                                    <a href="{% url 'search_courier' %}"><img src="{% static 'asset/images/logo/footer-logo-white.png' %}"
+                                            alt="Footer Logo" /></a>
+                                </div>
+                                <div class="footer-widget-contact">
+                                    <div class="footer-contact">
+                                        <ul>
+                                            <li>
+                                                <div class="contact-icon">
+                                                    <i class="fa-solid fa-location-dot"></i>
+                                                </div>
+                                                <div class="contact-text">
+                                                    <span>22/1 Bardeshi, Amin Bazar<br />Dhaka 1348</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="contact-icon">
+                                                    <i class="fa-light fa-envelope"></i>
+                                                </div>
+                                                <div class="contact-text">
+                                                    <a href="mailto:hello@transico.com"><span>winslow@cloner.store</span></a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="contact-icon">
+                                                    <i class="fa-solid fa-phone"></i>
+                                                </div>
+                                                <div class="contact-text">
+                                                    <span>+88 01234 567 890</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="social-profile">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2 class="footer-widget-title">Recent Posts</h2>
+                            <div class="widget_latest_post">
+                                <ul>
+                                    <li>
+                                        <div class="latest-post-thumb">
+                                            <img src="{% static 'asset/images/blog/r1.jpg' %}" alt="">
+                                        </div>
+                                        <div class="latest-post-desc">
+                                            <span class="latest-post-meta">January 13, 2023</span>
+                                            <h3 class="latest-post-title"><a href="blog-details.html">Acadian Non
+                                                    Emergency Transportation</a>
+                                            </h3>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="latest-post-thumb">
+                                            <img src="{% static 'asset/images/blog/r2.jpg' %}" alt="">
+                                        </div>
+                                        <div class="latest-post-desc">
+                                            <span class="latest-post-meta">January 13, 2023</span>
+                                            <h3 class="latest-post-title"><a href="blog-details.html">Can You Transport
+                                                    Furniture In Uber</a>
+                                            </h3>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2 class="footer-widget-title">Instagram Links</h2>
+                            <div class="widget-instagram-feed">
+                                <div class="single-instagram-feed">
+                                    <img src="{% static 'asset/images/instagram/instagram-1.jpg' %}" alt="instagram photo" />
+                                </div>
+                                <div class="single-instagram-feed">
+                                    <img src="{% static 'asset/images/instagram/instagram-2.jpg' %}" alt="instagram photo" />
+                                </div>
+                                <div class="single-instagram-feed">
+                                    <img src="{% static 'asset/images/instagram/instagram-3.jpg' %}" alt="instagram photo" />
+                                </div>
+                                <div class="single-instagram-feed">
+                                    <img src="{% static 'asset/images/instagram/instagram-4.jpg' %}" alt="instagram photo" />
+                                </div>
+                                <div class="single-instagram-feed">
+                                    <img src="{% static 'asset/images/instagram/instagram-5.jpg' %}" alt="instagram photo" />
+                                </div>
+                                <div class="single-instagram-feed">
+                                    <img src="{% static 'asset/images/instagram/instagram-6.jpg' %}" alt="instagram photo" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="copyright-text">
+                            <p>Designed with love &copy; <a href="javascript:void">Cloner International Tracking</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bg">
+            <img src="{% static 'asset/images/section-bg/footer-map-shape.png' %}" alt="footer image" />
+        </div>
+    </footer>
+    <!--- End Footer !-->
+    <!-- Scroll Up Section Start -->
+    <div id="scrollTop" class="scrollup-wrapper">
+        <div class="scrollup-btn">
+            <i class="fa-regular fa-angle-up"></i>
+        </div>
+    </div>
+    <!-- Scroll Up Section End -->
+    <script src="{% static 'asset/js/jquery.min.js' %}"></script>
+    <script src="{% static 'asset/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'asset/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'asset/js/slick.min.js' %}"></script>
+    <script src="{% static 'asset/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'asset/js/waypoints.js' %}"></script>
+    <script src="{% static 'asset/js/jquery.meanmenu.min.js' %}"></script>
+    <script src="{% static 'asset/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'asset/js/inview.min.js' %}"></script>
+    <script src="{% static 'asset/js/wow.js' %}"></script>
+    <script src="{% static 'asset/js/tilt.jquery.js' %}"></script>
+    <script src="{% static 'asset/js/custom.js' %}"></script>
+</body>
+</html>

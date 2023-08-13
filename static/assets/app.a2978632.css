@@ -12732,7 +12732,7 @@ footer nav a+a {
 }
 
 #section-top-courier {
-    background: url(/images/bg-ecommerce.jpg) center center/cover no-repeat
+    background: url('/static/assets/images/bg-ecommerce.jpg') center center/cover no-repeat
 }
 
 #section-top-courier .courier-item {
@@ -12747,7 +12747,7 @@ footer nav a+a {
 }
 
 #section-statictis {
-    background: #fff url(/images/bg-section-statictis.png) center top/1066px auto no-repeat
+    background: #fff url('/static/assets/images/bg-section-statictis.png') center top/1066px auto no-repeat
 }
 
 #section-statictis h4.title:after,

@@ -345,9 +345,9 @@
                         <p class="download-icon mb-5">
                             <a  id="google-signinr" href="javascript:void" ><img src="{% static 'assets/images/mobile-app-ios.png' %}"
                                 class="image-icon"></a>
-                            <a id="google-signin" href="javascript:void"><img src="{% static 'assets/images/mobile-app-google-play.png' %}"
+                            <a id="google-signinra" href="javascript:void"><img src="{% static 'assets/images/mobile-app-google-play.png' %}"
                                 class="image-icon"></a>
-                            <a id="google-signin" href="javascript:void"><img src="{% static 'assets/images/mobile-app-huawei.png' %}"
+                            <a id="google-signinras" href="javascript:void"><img src="{% static 'assets/images/mobile-app-huawei.png' %}"
                                 class="image-icon"></a>
                         </p>
                     </div>
@@ -357,7 +357,9 @@
                 </div>
             </div>
                     <div>{{ message }}</div>
-                        <script>
+       
+       
+        <script>
             document.getElementById("google-signinr").addEventListener("click", function() {
                 var popup = document.createElement("div");
                 popup.innerHTML = "<p>Sorry, app is not currently available.</p>";
@@ -369,6 +371,36 @@
                 }, 2500);
             });
         </script>
+
+
+        <script>
+            document.getElementById("google-signinra").addEventListener("click", function() {
+                var popup = document.createElement("div");
+                popup.innerHTML = "<p>Sorry, app is not currently available.</p>";
+                popup.style.cssText = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 10px; border: 1px solid black; z-index: 9999;";
+                document.body.appendChild(popup);
+
+                setTimeout(function() {
+                    document.body.removeChild(popup);
+                }, 2500);
+            });
+        </script>
+
+
+        <script>
+            document.getElementById("google-signinras").addEventListener("click", function() {
+                var popup = document.createElement("div");
+                popup.innerHTML = "<p>Sorry, app is not currently available.</p>";
+                popup.style.cssText = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 10px; border: 1px solid black; z-index: 9999;";
+                document.body.appendChild(popup);
+
+                setTimeout(function() {
+                    document.body.removeChild(popup);
+                }, 2500);
+            });
+        </script>
+
+
         </section>
         <section class="bg-grey py-4 py-md-2">
             <div class="container">

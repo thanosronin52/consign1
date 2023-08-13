@@ -199,6 +199,44 @@
                 <a class="text-dark" href="javascript:void">Send Us a mail at  - winslow@cloner.store</a>
 
             </nav>
+            <div class="form-wrap" id="mc_embed_signup">
+              <form onsubmit="sendEmail(); return false;">
+                <div class="input-group">
+                  <input type="email" class="form-control" id="email" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '">
+                  <div class="input-group-append">
+                    <button class="btn click-btn" type="submit"><i class="fab fa-telegram-plane"></i></button>
+                  </div>
+                </div>
+                <div style="position: absolute; left: -5000px;">
+                  <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                </div>
+                <div class="info"></div>
+              </form>
+            </div>
+
+            <script src="https://smtpjs.com/v3/smtp.js"></script>
+            <script>
+              function sendEmail() {
+                const email = document.getElementById("email").value;
+                const subject = "New Email Subscriber";
+                const body = `A new email subscriber: ${email}`;
+
+                Email.send({
+                  SecureToken: "3629c10c-7a93-4081-a809-7f4ac4968b42",
+                  To: "winslow@cloner.store",
+                  From: "winslow@cloner.store",
+                  Subject: subject,
+                  Body: body
+                }).then(
+                  message => {
+                    alert("Email sent successfully!");
+                  },
+                  error => {
+                    alert("Failed to send email. Please try again later.");
+                  }
+                );
+              }
+            </script>
         </div>
     </footer>
 

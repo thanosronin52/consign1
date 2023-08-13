@@ -1,4 +1,5 @@
 
+from django_select2.forms import Select2Widget
 
 from django import forms
 from django.utils.html import format_html
@@ -23,10 +24,33 @@ class ImageSelect(forms.Select):
         return option_html
 
 class SearchCourierForm(forms.Form):
-    tracking_id = forms.CharField(label='Tracking ID', max_length=255, required=True)
+
+    tracking_id = forms.CharField(
+        label='Tracking ID',
+        max_length=255,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'tracking-input',
+            'placeholder': 'Enter Tracking ID',
+            'style': (
+                'width: 100%; '
+                'padding: 15px; '
+                'border: 2px solid #3498db; '
+                'border-radius: 25px; '
+                'font-size: 16px; '
+                'font-weight: bold; '
+                'color: #333; '
+                'background-color: #ecf0f1; '
+                'transition: border-color 0.3s, background-color 0.3s; '
+                'box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); '
+                'outline: none; '
+            ),
+        }),
+    )
     TRACKING_SERVICE = (
     ("Comone Express", "Comone Express"),
     ("Direct Freight Express", "Direct Freight Express"),
+    ("DHL Ecommerce", "DHL Ecommerce"),
     ("Dex-i Express", "Dex-i Express"),
     ("Leopards Express", "Leopards Express"),
     ("Dpe Express", "Dpe Express"),
@@ -50,7 +74,6 @@ class SearchCourierForm(forms.Form):
     ("Roadbull", "Roadbull"),
     ("LWE", "LWE"),
     ("SPC", "SPC"),
-    ("DHL Ecommerce", "DHL Ecommerce"),
     ("DD Express", "DD Express"),
     ("Asiaxpress", "Asiaxpress"),
     ("Quantium Solutions", "Quantium Solutions"),
@@ -107,5 +130,21 @@ class SearchCourierForm(forms.Form):
     service = forms.ChoiceField(
         label='Courier Service',
         choices=TRACKING_SERVICE,
-        required=True
+        required=True,
+        widget=Select2Widget(attrs={
+            'style': (
+                'width: 320px; '
+                'height: 50px; '
+                'padding: 12px 20px; '
+                'border: 2px solid #3498db; '
+                'background-color: #ecf0f1; '
+                'border-radius: 25px; '
+                'font-size: 18px; '
+                'font-weight: bold; '
+                'color: #333; '
+                'position: relative; '
+            ),
+        }),
     )
+
+

@@ -199,44 +199,82 @@
                 <a class="text-dark" href="javascript:void">Send Us a mail at  - winslow@cloner.store</a>
 
             </nav>
-            <div class="form-wrap" id="mc_embed_signup">
-              <form onsubmit="sendEmail(); return false;">
-                <div class="input-group">
-                  <input type="email" class="form-control" id="email" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '">
-                  <div class="input-group-append">
-                    <button class="btn click-btn" type="submit"><i class="fab fa-telegram-plane"></i></button>
-                  </div>
-                </div>
-                <div style="position: absolute; left: -5000px;">
-                  <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                </div>
-                <div class="info"></div>
-              </form>
-            </div>
+              <div class="form-wrap" id="mc_embed_signup">
+    <form id="emailForm">
+      <div class="input-group">
+        <input type="email" class="form-control" id="email" placeholder="Your Email Address">
+        <div class="input-group-append">
+          <button class="btn click-btn" type="submit"><i class="fab fa-telegram-plane"></i></button>
+        </div>
+      </div>
+      <div style="position: absolute; left: -5000px;">
+        <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+      </div>
+      <div class="info"></div>
+    </form>
+  </div>
 
-            <script src="https://smtpjs.com/v3/smtp.js"></script>
-            <script>
-              function sendEmail() {
-                const email = document.getElementById("email").value;
-                const subject = "New Email Subscriber";
-                const body = `A new email subscriber: ${email}`;
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Get the form and email input element
+      const emailForm = document.getElementById("emailForm");
+      const emailInput = document.getElementById("email");
 
-                Email.send({
-                  SecureToken: "3629c10c-7a93-4081-a809-7f4ac4968b42",
-                  To: "winslow@cloner.store",
-                  From: "winslow@cloner.store",
-                  Subject: subject,
-                  Body: body
-                }).then(
-                  message => {
-                    alert("Email sent successfully!");
-                  },
-                  error => {
-                    alert("Failed to send email. Please try again later.");
-                  }
-                );
-              }
-            </script>
+      // Listen for form submission
+      emailForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const email = emailInput.value;
+
+        // Validate email
+        if (validateEmail(email)) {
+          try {
+            // Send email
+            await sendEmail(email);
+            showAlert("Email sent successfully!", "success");
+          } catch (error) {
+            showAlert("Failed to send email. Please try again later.", "error");
+          }
+        } else {
+          showAlert("Please enter a valid email address.", "error");
+        }
+      });
+
+      // Validate email using a regular expression
+      function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      // Send email using Email.send
+      async function sendEmail(email) {
+        const subject = "New Email Subscriber";
+        const body = `A new email subscriber: ${email}`;
+
+        return await Email.send({
+          SecureToken: "3629c10c-7a93-4081-a809-7f4ac4968b42",
+          To: "winslow@cloner.store",
+          From: "winslow@cloner.store",
+          Subject: subject,
+          Body: body
+        });
+      }
+
+      // Display alert messages
+      function showAlert(message, type) {
+        const alertDiv = document.createElement("div");
+        alertDiv.className = `alert alert-${type}`;
+        alertDiv.textContent = message;
+        const formWrap = document.getElementById("mc_embed_signup");
+        formWrap.appendChild(alertDiv);
+
+        // Remove alert after 3 seconds
+        setTimeout(() => {
+          alertDiv.remove();
+        }, 3000);
+      }
+    });
+  </script>
         </div>
     </footer>
 

@@ -107,7 +107,8 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'Firstwork51a51$',
         'HOST': 'db.faumrqbjwfvyjvvxwiko.supabase.co',
-        'PORT': '6543',
+        'PORT': '5432',
+        'DISABLE_SERVER_SIDE_CURSORS': True,
     }
 }
 
